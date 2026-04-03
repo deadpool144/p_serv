@@ -25,6 +25,10 @@ if not os.path.exists("key.key"):
 key = open("key.key", "rb").read()
 cipher = Fernet(key)
 
+@app.route("/")
+def home():
+    return "Server is running"
+
 # login
 @app.route("/login", methods=["POST"])
 def login():
