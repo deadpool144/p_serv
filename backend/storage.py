@@ -139,8 +139,14 @@ def _extract_image_thumb(dp, nonce):
         return None
 
 def _extract_video_thumb(dp, nonce, enc_name):
-    import cv2
-    import numpy as np
+    """Fallback-ready video frame extraction."""
+    try:
+        import cv2
+        import numpy as np
+    except ImportError:
+        print(f"[Vault] Video thumbnails DISABLED (OpenCV/Numpy not found).")
+        return None
+        
     from PIL import Image
     import io
     
@@ -177,7 +183,7 @@ def _extract_video_thumb(dp, nonce, enc_name):
             
     except Exception as e:
         if os.path.exists(temp_vid): os.remove(temp_vid)
-        print(f"[Vault] Video thumb failed: {e}")
+        print(f"[Vault] Video thumb processing failed: {e}")
     return None
 
 def serve_vault_stream(enc_name: str, is_download=False):
