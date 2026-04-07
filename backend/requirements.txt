@@ -1,9 +1,0 @@
-flask
-python-dotenv
-cryptography
-waitress
-Pillow
-
-# ── Optional: For Video Thumbnails ──────────────────────────────────────────
-# On PC: pip install opencv-python-headless numpy
-# On Termux: pkg install opencv (recommended for ARM performance)

@@ -1,0 +1,14 @@
+{
+  "name": "securvault-unified",
+  "version": "1.0.0",
+  "description": "SecurVault Media Server - Unified Runner",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "install-all": "npm install && npm install --prefix backend && npm install --prefix frontend",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
